@@ -11,6 +11,7 @@ packages = [{include = "@package@"}]
 python = "^@pythonMajorMinorVersion@"
 pythoneda-realm-rydnr-events = "^@pythonedaRealmRydnrEventsVersion@"
 pythoneda-shared-artifact-changes-events = "^@pythonedaSharedArtifactChangesEventsVersion@"
+pythoneda-shared-artifact-changes-shared = "^@pythonedaSharedArtifactChangesSharedVersion@"
 pythoneda-shared-pythoneda-domain = "^@pythonedaSharedPythonedaDomainVersion@"
 pythoneda-shared-pythoneda-infrastructure = "^@pythonedaSharedPythonedaInfrastructureVersion@"
 
