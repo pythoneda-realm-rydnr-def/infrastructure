@@ -78,7 +78,12 @@
         "pythoneda-shared-artifact-changes-events": [
           "pythoneda-shared-artifact-changes-events"
         ],
-        "pythoneda-shared-git-shared": "pythoneda-shared-git-shared",
+        "pythoneda-shared-artifact-changes-shared": [
+          "pythoneda-shared-artifact-changes-shared"
+        ],
+        "pythoneda-shared-git-shared": [
+          "pythoneda-shared-git-shared"
+        ],
         "pythoneda-shared-pythoneda-banner": [
           "pythoneda-shared-pythoneda-banner"
         ],
@@ -88,17 +93,17 @@
       },
       "locked": {
         "dir": "realm",
-        "lastModified": 1690902754,
-        "narHash": "sha256-mxriLJHdlIrdP4DtUXTnsc2897phfnQStAHU085sVBw=",
+        "lastModified": 1690903947,
+        "narHash": "sha256-+5HGSzLwBevua8taM4W0Yb1fyXHJxBxZZg8jbEE3bkw=",
         "owner": "pythoneda-realm-rydnr",
         "repo": "realm-artifact",
-        "rev": "4a88cc376049ecc95d3ef1b6b0191b6e5ebbf312",
+        "rev": "df0b1961d5e2d1e680680f3656359a5d00d18324",
         "type": "github"
       },
       "original": {
         "dir": "realm",
         "owner": "pythoneda-realm-rydnr",
-        "ref": "0.0.1a6",
+        "ref": "0.0.1a7",
         "repo": "realm-artifact",
         "type": "github"
       }
@@ -171,42 +176,6 @@
       }
     },
     "pythoneda-shared-git-shared": {
-      "inputs": {
-        "flake-utils": [
-          "pythoneda-realm-rydnr-realm",
-          "flake-utils"
-        ],
-        "nixos": [
-          "pythoneda-realm-rydnr-realm",
-          "nixos"
-        ],
-        "pythoneda-shared-pythoneda-banner": [
-          "pythoneda-realm-rydnr-realm",
-          "pythoneda-shared-pythoneda-banner"
-        ],
-        "pythoneda-shared-pythoneda-domain": [
-          "pythoneda-realm-rydnr-realm",
-          "pythoneda-shared-pythoneda-domain"
-        ]
-      },
-      "locked": {
-        "dir": "shared",
-        "lastModified": 1690901877,
-        "narHash": "sha256-1sBQ0EIfGVns3lSa8TiuTB40Q9TwieAF7hd6v0FXq2g=",
-        "owner": "pythoneda-shared-git",
-        "repo": "shared-artifact",
-        "rev": "2c00a8e4e3dd94f6779fc0987a1c195de4b9fa7c",
-        "type": "github"
-      },
-      "original": {
-        "dir": "shared",
-        "owner": "pythoneda-shared-git",
-        "ref": "0.0.1a10",
-        "repo": "shared-artifact",
-        "type": "github"
-      }
-    },
-    "pythoneda-shared-git-shared_2": {
       "inputs": {
         "flake-utils": [
           "flake-utils"
@@ -331,7 +300,7 @@
         "pythoneda-realm-rydnr-realm": "pythoneda-realm-rydnr-realm",
         "pythoneda-shared-artifact-changes-events": "pythoneda-shared-artifact-changes-events",
         "pythoneda-shared-artifact-changes-shared": "pythoneda-shared-artifact-changes-shared",
-        "pythoneda-shared-git-shared": "pythoneda-shared-git-shared_2",
+        "pythoneda-shared-git-shared": "pythoneda-shared-git-shared",
         "pythoneda-shared-pythoneda-banner": "pythoneda-shared-pythoneda-banner",
         "pythoneda-shared-pythoneda-domain": "pythoneda-shared-pythoneda-domain",
         "pythoneda-shared-pythoneda-infrastructure": "pythoneda-shared-pythoneda-infrastructure"
