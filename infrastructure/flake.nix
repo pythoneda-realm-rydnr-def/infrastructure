@@ -22,7 +22,7 @@
     nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     pythoneda-realm-rydnr-events = {
-      url = "github:pythoneda-realm-rydnr/events-artifact/0.0.1a4?dir=events";
+      url = "github:pythoneda-realm-rydnr/events-artifact/0.0.1a5?dir=events";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-shared-pythoneda-banner.follows =
@@ -30,9 +30,24 @@
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
     };
+    pythoneda-realm-rydnr-realm = {
+      url = "github:pythoneda-realm-rydnr/realm-artifact/0.0.1a6?dir=realm";
+      inputs.nixos.follows = "nixos";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.pythoneda-realm-rydnr-events.follows =
+        "pythoneda-realm-rydnr-events";
+      inputs.pythoneda-shared-artifact-changes-events.follows =
+        "pythoneda-shared-artifact-changes-events";
+      inputs.pythoneda-shaced-git-shared.follows =
+        "pythoneda-shared-git-shared";
+      inputs.pythoneda-shared-pythoneda-banner.follows =
+        "pythoneda-shared-pythoneda-banner";
+      inputs.pythoneda-shared-pythoneda-domain.follows =
+        "pythoneda-shared-pythoneda-domain";
+    };
     pythoneda-shared-artifact-changes-events = {
       url =
-        "github:pythoneda-shared-artifact-changes/events-artifact/0.0.1a7?dir=events";
+        "github:pythoneda-shared-artifact-changes/events-artifact/0.0.1a8?dir=events";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-shared-pythoneda-banner.follows =
@@ -44,7 +59,16 @@
     };
     pythoneda-shared-artifact-changes-shared = {
       url =
-        "github:pythoneda-shared-artifact-changes/shared-artifact/0.0.1a4?dir=shared";
+        "github:pythoneda-shared-artifact-changes/shared-artifact/0.0.1a5?dir=shared";
+      inputs.nixos.follows = "nixos";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.pythoneda-shared-pythoneda-banner.follows =
+        "pythoneda-shared-pythoneda-banner";
+      inputs.pythoneda-shared-pythoneda-domain.follows =
+        "pythoneda-shared-pythoneda-domain";
+    };
+    pythoneda-shared-git-shared = {
+      url = "github:pythoneda-shared-git/shared-artifact/0.0.1a10?dir=shared";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-shared-pythoneda-banner.follows =
@@ -53,13 +77,13 @@
         "pythoneda-shared-pythoneda-domain";
     };
     pythoneda-shared-pythoneda-banner = {
-      url = "github:pythoneda-shared-pythoneda/banner/0.0.1a6";
+      url = "github:pythoneda-shared-pythoneda/banner/0.0.1a7";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
     };
     pythoneda-shared-pythoneda-domain = {
       url =
-        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.1a29?dir=domain";
+        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.1a30?dir=domain";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-shared-pythoneda-banner.follows =
@@ -67,7 +91,7 @@
     };
     pythoneda-shared-pythoneda-infrastructure = {
       url =
-        "github:pythoneda-shared-pythoneda/infrastructure-artifact/0.0.1a16?dir=infrastructure";
+        "github:pythoneda-shared-pythoneda/infrastructure-artifact/0.0.1a17?dir=infrastructure";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-shared-pythoneda-banner.follows =
@@ -92,16 +116,16 @@
         maintainers = with pkgs.lib.maintainers;
           [ "rydnr <github@acm-sl.org>" ];
         archRole = "R";
-        space = "_";
+        space = "D";
         layer = "I";
         nixosVersion = builtins.readFile "${nixos}/.version";
         nixpkgsRelease = "nixos-${nixosVersion}";
         shared = import "${pythoneda-shared-pythoneda-banner}/nix/shared.nix";
         pythoneda-realm-rydnr-infrastructure-for = { python
-          , pythoneda-realm-rydnr-events
+          , pythoneda-realm-rydnr-events, pythoneda-realm-rydnr-realm
           , pythoneda-shared-artifact-changes-events
           , pythoneda-shared-artifact-changes-shared
-          , pythoneda-shared-pythoneda-domain
+          , pythoneda-shared-git-shared, pythoneda-shared-pythoneda-domain
           , pythoneda-shared-pythoneda-infrastructure }:
           let
             pnameWithUnderscores =
@@ -126,10 +150,14 @@
               package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
               pythonedaRealmRydnrEventsVersion =
                 pythoneda-realm-rydnr-events.version;
+              pythonedaRealmRydnrRealmVersion =
+                pythoneda-realm-rydnr-realm.version;
               pythonedaSharedArtifactChangesEventsVersion =
                 pythoneda-shared-artifact-changes-events.version;
               pythonedaSharedArtifactChangesSharedVersion =
                 pythoneda-shared-artifact-changes-shared.version;
+              pythonedaSharedGitSharedVersion =
+                pythoneda-shared-git-shared.version;
               pythonedaSharedPythonedaDomainVersion =
                 pythoneda-shared-pythoneda-domain.version;
               pythonedaSharedPythonedaInfrastructureVersion =
@@ -147,8 +175,10 @@
             nativeBuildInputs = with python.pkgs; [ pip pkgs.jq poetry-core ];
             propagatedBuildInputs = with python.pkgs; [
               pythoneda-realm-rydnr-events
+              pythoneda-realm-rydnr-realm
               pythoneda-shared-artifact-changes-events
               pythoneda-shared-artifact-changes-shared
+              pythoneda-shared-git-shared
               pythoneda-shared-pythoneda-domain
               pythoneda-shared-pythoneda-infrastructure
             ];
@@ -222,10 +252,14 @@
               python = pkgs.python38;
               pythoneda-realm-rydnr-events =
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python38;
+              pythoneda-realm-rydnr-realm =
+                pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python38;
               pythoneda-shared-artifact-changes-events =
                 pythoneda-shared-artifact-changes-events.packages.${system}.pythoneda-shared-artifact-changes-events-python38;
               pythoneda-shared-artifact-changes-shared =
                 pythoneda-shared-artifact-changes-shared.packages.${system}.pythoneda-shared-artifact-changes-shared-python38;
+              pythoneda-shared-git-shared =
+                pythoneda-shared-git-shared.packages.${system}.pythoneda-shared-git-shared-python38;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python38;
               pythoneda-shared-pythoneda-infrastructure =
@@ -236,10 +270,14 @@
               python = pkgs.python39;
               pythoneda-realm-rydnr-events =
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python39;
+              pythoneda-realm-rydnr-realm =
+                pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python39;
               pythoneda-shared-artifact-changes-events =
                 pythoneda-shared-artifact-changes-events.packages.${system}.pythoneda-shared-artifact-changes-events-python39;
               pythoneda-shared-artifact-changes-shared =
                 pythoneda-shared-artifact-changes-shared.packages.${system}.pythoneda-shared-artifact-changes-shared-python39;
+              pythoneda-shared-git-shared =
+                pythoneda-shared-git-shared.packages.${system}.pythoneda-shared-git-shared-python39;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python39;
               pythoneda-shared-pythoneda-infrastructure =
@@ -250,10 +288,14 @@
               python = pkgs.python310;
               pythoneda-realm-rydnr-events =
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python310;
+              pythoneda-realm-rydnr-realm =
+                pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python310;
               pythoneda-shared-artifact-changes-events =
                 pythoneda-shared-artifact-changes-events.packages.${system}.pythoneda-shared-artifact-changes-events-python310;
               pythoneda-shared-artifact-changes-shared =
                 pythoneda-shared-artifact-changes-shared.packages.${system}.pythoneda-shared-artifact-changes-shared-python310;
+              pythoneda-shared-git-shared =
+                pythoneda-shared-git-shared.packages.${system}.pythoneda-shared-git-shared-python310;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python310;
               pythoneda-shared-pythoneda-infrastructure =
