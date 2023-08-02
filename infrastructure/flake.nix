@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 {
-  description = "Infrastructure layer for pythoneda-realm-rydnr";
+  description = "Infrastructure layer for pythoneda-realm-rydnr/realm";
   inputs = rec {
     nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
@@ -49,7 +49,7 @@
     };
     pythoneda-shared-artifact-changes-events = {
       url =
-        "github:pythoneda-shared-artifact-changes/events-artifact/0.0.1a8?dir=events";
+        "github:pythoneda-shared-artifact-changes/events-artifact/0.0.1a9?dir=events";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-shared-pythoneda-banner.follows =
@@ -111,8 +111,9 @@
         version = "0.0.1a2";
         sha256 = "sha256-x+XZ/khVZUDSCY0ZZgrtOI3OW9lV0U33As6BrcfV+d4=";
         pname = "${org}-${repo}";
-        pkgs = import nixos { inherit system; };
-        description = "Infrastructure layer for pythoneda-realm-rydnr";
+        pythonpackage = builtins.replaceStrings [ "-" ] [ "." ] pname;
+        package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
+        description = "Infrastructure layer for pythoneda-realm-rydnr/realm";
         license = pkgs.lib.licenses.gpl3;
         homepage = "https://github.com/${org}/${repo}";
         maintainers = with pkgs.lib.maintainers;
@@ -123,6 +124,7 @@
         nixosVersion = builtins.readFile "${nixos}/.version";
         nixpkgsRelease = "nixos-${nixosVersion}";
         shared = import "${pythoneda-shared-pythoneda-banner}/nix/shared.nix";
+        pkgs = import nixos { inherit system; };
         pythoneda-realm-rydnr-infrastructure-for = { python
           , pythoneda-realm-rydnr-events, pythoneda-realm-rydnr-realm
           , pythoneda-shared-artifact-changes-events
@@ -147,9 +149,8 @@
               authors = builtins.concatStringsSep ","
                 (map (item: ''"${item}"'') maintainers);
               desc = description;
-              inherit homepage pname pythonMajorMinorVersion pythonpackage
-                version;
-              package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
+              inherit homepage package pname pythonMajorMinorVersion
+                pythonpackage version;
               pythonedaRealmRydnrEventsVersion =
                 pythoneda-realm-rydnr-events.version;
               pythonedaRealmRydnrRealmVersion =
