@@ -22,7 +22,7 @@
     nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     pythoneda-realm-rydnr-events = {
-      url = "github:pythoneda-realm-rydnr/events-artifact/0.0.1a5?dir=events";
+      url = "github:pythoneda-realm-rydnr/events-artifact/0.0.1a6?dir=events";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-shared-pythoneda-banner.follows =
@@ -31,7 +31,7 @@
         "pythoneda-shared-pythoneda-domain";
     };
     pythoneda-realm-rydnr-realm = {
-      url = "github:pythoneda-realm-rydnr/realm-artifact/0.0.1a7?dir=realm";
+      url = "github:pythoneda-realm-rydnr/realm-artifact/0.0.1a8?dir=realm";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-realm-rydnr-events.follows =
@@ -108,8 +108,8 @@
       let
         org = "pythoneda-realm-rydnr";
         repo = "infrastructure";
-        version = "0.0.1a1";
-        sha256 = "sha256-WxVo70zf1BUdXUVBal/x5M6HAImnbiZyX1YSVCKJ9Kk=";
+        version = "0.0.1a2";
+        sha256 = "sha256-x+XZ/khVZUDSCY0ZZgrtOI3OW9lV0U33As6BrcfV+d4=";
         pname = "${org}-${repo}";
         pkgs = import nixos { inherit system; };
         description = "Infrastructure layer for pythoneda-realm-rydnr";
