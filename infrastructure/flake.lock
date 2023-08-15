@@ -64,6 +64,41 @@
         "type": "github"
       }
     },
+    "pythoneda-realm-rydnr-events-infrastructure": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixos": [
+          "nixos"
+        ],
+        "pythoneda-realm-rydnr-events": [
+          "pythoneda-realm-rydnr-events"
+        ],
+        "pythoneda-shared-pythoneda-banner": [
+          "pythoneda-shared-pythoneda-banner"
+        ],
+        "pythoneda-shared-pythoneda-domain": [
+          "pythoneda-shared-pythoneda-domain"
+        ]
+      },
+      "locked": {
+        "dir": "events-infrastructure",
+        "lastModified": 1690933995,
+        "narHash": "sha256-XJxLWlirPjzZKNkzDFDdB4gVP+cyLYE35png9sZA7Ck=",
+        "owner": "pythoneda-realm-rydnr",
+        "repo": "events-infrastructure-artifact",
+        "rev": "4953d8bd95f843e07734104b35348167f7e1a702",
+        "type": "github"
+      },
+      "original": {
+        "dir": "events-infrastructure",
+        "owner": "pythoneda-realm-rydnr",
+        "ref": "0.0.1a5",
+        "repo": "events-infrastructure-artifact",
+        "type": "github"
+      }
+    },
     "pythoneda-realm-rydnr-realm": {
       "inputs": {
         "flake-utils": [
@@ -341,6 +376,7 @@
         "flake-utils": "flake-utils",
         "nixos": "nixos",
         "pythoneda-realm-rydnr-events": "pythoneda-realm-rydnr-events",
+        "pythoneda-realm-rydnr-events-infrastructure": "pythoneda-realm-rydnr-events-infrastructure",
         "pythoneda-realm-rydnr-realm": "pythoneda-realm-rydnr-realm",
         "pythoneda-shared-artifact-changes-events": "pythoneda-shared-artifact-changes-events",
         "pythoneda-shared-artifact-changes-events-infrastructure": "pythoneda-shared-artifact-changes-events-infrastructure",

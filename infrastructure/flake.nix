@@ -30,6 +30,18 @@
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
     };
+    pythoneda-realm-rydnr-events-infrastructure = {
+      url =
+        "github:pythoneda-realm-rydnr/events-infrastructure-artifact/0.0.1a5?dir=events-infrastructure";
+      inputs.nixos.follows = "nixos";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.pythoneda-shared-pythoneda-banner.follows =
+        "pythoneda-shared-pythoneda-banner";
+      inputs.pythoneda-shared-pythoneda-domain.follows =
+        "pythoneda-shared-pythoneda-domain";
+      inputs.pythoneda-realm-rydnr-events.follows =
+        "pythoneda-realm-rydnr-events";
+    };
     pythoneda-realm-rydnr-realm = {
       url = "github:pythoneda-realm-rydnr/realm-artifact/0.0.1a8?dir=realm";
       inputs.nixos.follows = "nixos";
@@ -144,7 +156,9 @@
         shared = import "${pythoneda-shared-pythoneda-banner}/nix/shared.nix";
         pkgs = import nixos { inherit system; };
         pythoneda-realm-rydnr-infrastructure-for = { python
-          , pythoneda-realm-rydnr-events, pythoneda-realm-rydnr-realm
+          , pythoneda-realm-rydnr-events
+          , pythoneda-realm-rydnr-events-infrastructure
+          , pythoneda-realm-rydnr-realm
           , pythoneda-shared-artifact-changes-events
           , pythoneda-shared-artifact-changes-events-infrastructure
           , pythoneda-shared-artifact-changes-shared
@@ -172,6 +186,8 @@
                 pythonpackage version;
               pythonedaRealmRydnrEventsVersion =
                 pythoneda-realm-rydnr-events.version;
+              pythonedaRealmRydnrEventsInfrastructureVersion =
+                pythoneda-realm-rydnr-events-infrastructure.version;
               pythonedaRealmRydnrRealmVersion =
                 pythoneda-realm-rydnr-realm.version;
               pythonedaSharedArtifactChangesEventsVersion =
@@ -199,6 +215,7 @@
             nativeBuildInputs = with python.pkgs; [ pip pkgs.jq poetry-core ];
             propagatedBuildInputs = with python.pkgs; [
               pythoneda-realm-rydnr-events
+              pythoneda-realm-rydnr-events-infrastructure
               pythoneda-realm-rydnr-realm
               pythoneda-shared-artifact-changes-events
               pythoneda-shared-artifact-changes-events-infrastructure
@@ -277,6 +294,8 @@
               python = pkgs.python38;
               pythoneda-realm-rydnr-events =
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python38;
+              pythoneda-realm-rydnr-events-infrastructure =
+                pythoneda-realm-rydnr-events-infrastructure.packages.${system}.pythoneda-realm-rydnr-events-infrastructure-python38;
               pythoneda-realm-rydnr-realm =
                 pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python38;
               pythoneda-shared-artifact-changes-events =
@@ -297,6 +316,8 @@
               python = pkgs.python39;
               pythoneda-realm-rydnr-events =
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python39;
+              pythoneda-realm-rydnr-events-infrastructure =
+                pythoneda-realm-rydnr-events-infrastructure.packages.${system}.pythoneda-realm-rydnr-events-infrastructure-python39;
               pythoneda-realm-rydnr-realm =
                 pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python39;
               pythoneda-shared-artifact-changes-events =
@@ -317,6 +338,8 @@
               python = pkgs.python310;
               pythoneda-realm-rydnr-events =
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python310;
+              pythoneda-realm-rydnr-events-infrastructure =
+                pythoneda-realm-rydnr-events-infrastructure.packages.${system}.pythoneda-realm-rydnr-events-infrastructure-python310;
               pythoneda-realm-rydnr-realm =
                 pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python310;
               pythoneda-shared-artifact-changes-events =
