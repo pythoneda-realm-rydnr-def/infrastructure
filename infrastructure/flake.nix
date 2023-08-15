@@ -43,7 +43,7 @@
         "pythoneda-realm-rydnr-events";
     };
     pythoneda-realm-rydnr-realm = {
-      url = "github:pythoneda-realm-rydnr/realm-artifact/0.0.1a8?dir=realm";
+      url = "github:pythoneda-realm-rydnr/realm-artifact/0.0.1a9?dir=realm";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-realm-rydnr-events.follows =
