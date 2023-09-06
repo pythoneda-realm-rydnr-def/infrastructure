@@ -83,7 +83,7 @@
     };
     pythoneda-shared-artifact-changes-events-infrastructure = {
       url =
-        "github:pythoneda-shared-artifact-changes/events-infrastructure-artifact/0.0.1a12?dir=events-infrastructure";
+        "github:pythoneda-shared-artifact-changes/events-infrastructure-artifact/0.0.1a13?dir=events-infrastructure";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.pythoneda-shared-artifact-changes-events.follows =
@@ -129,9 +129,11 @@
     };
     pythoneda-shared-code-requests-events-infrastructure = {
       url =
-        "github:pythoneda-shared-code-requests/events-infrastructure-artifact/0.0.1a2?dir=events-infrastructure";
+        "github:pythoneda-shared-code-requests/events-infrastructure-artifact/0.0.1a4?dir=events-infrastructure";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.pythoneda-shared-artifact-changes-shared.follows =
+        "pythoneda-shared-artifact-changes-shared";
       inputs.pythoneda-shared-code-requests-events.follows =
         "pythoneda-shared-code-requests-events";
       inputs.pythoneda-shared-code-requests-shared.follows =
