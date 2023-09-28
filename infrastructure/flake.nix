@@ -19,22 +19,20 @@
 {
   description = "Infrastructure layer for pythoneda-realm-rydnr/realm";
   inputs = rec {
-    nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
+    nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     pythoneda-realm-rydnr-events = {
-      url = "github:pythoneda-realm-rydnr/events-artifact/0.0.1a16?dir=events";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
+      url = "github:pythoneda-realm-rydnr/events-artifact/0.0.2?dir=events";
     };
     pythoneda-realm-rydnr-events-infrastructure = {
-      url =
-        "github:pythoneda-realm-rydnr/events-infrastructure-artifact/0.0.1a16?dir=events-infrastructure";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-realm-rydnr-events.follows =
         "pythoneda-realm-rydnr-events";
       inputs.pythoneda-shared-pythoneda-banner.follows =
@@ -43,184 +41,68 @@
         "pythoneda-shared-pythoneda-domain";
       inputs.pythoneda-shared-pythoneda-infrastructure.follows =
         "pythoneda-shared-pythoneda-infrastructure";
+      url =
+        "github:pythoneda-realm-rydnr/events-infrastructure-artifact/0.0.2?dir=events-infrastructure";
     };
     pythoneda-realm-rydnr-realm = {
-      url = "github:pythoneda-realm-rydnr/realm-artifact/0.0.1a19?dir=realm";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-realm-rydnr-events.follows =
         "pythoneda-realm-rydnr-events";
       inputs.pythoneda-shared-artifact-changes-events.follows =
         "pythoneda-shared-artifact-changes-events";
-      inputs.pythoneda-shared-artifact-changes-shared.follows =
-        "pythoneda-shared-artifact-changes-shared";
-      inputs.pythoneda-shared-code-requests-events.follows =
-        "pythoneda-shared-code-requests-events";
-      inputs.pythoneda-shared-code-requests-shared.follows =
-        "pythoneda-shared-code-requests-shared";
-      inputs.pythoneda-shared-git-shared.follows =
-        "pythoneda-shared-git-shared";
-      inputs.pythoneda-shared-nix-flake-shared.follows =
-        "pythoneda-shared-nix-flake-shared";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
-      inputs.stringtemplate3.follows = "stringtemplate3";
+      url = "github:pythoneda-realm-rydnr/realm-artifact/0.0.2?dir=realm";
     };
     pythoneda-shared-artifact-changes-events = {
-      url =
-        "github:pythoneda-shared-artifact-changes/events-artifact/0.0.1a21?dir=events";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
-      inputs.pythoneda-shared-code-requests-events.follows =
-        "pythoneda-shared-code-requests-events";
-      inputs.pythoneda-shared-code-requests-shared.follows =
-        "pythoneda-shared-code-requests-shared";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
-      inputs.pythoneda-shared-artifact-changes-shared.follows =
-        "pythoneda-shared-artifact-changes-shared";
+      url =
+        "github:pythoneda-shared-artifact-changes/events-artifact/0.0.2?dir=events";
     };
     pythoneda-shared-artifact-changes-events-infrastructure = {
-      url =
-        "github:pythoneda-shared-artifact-changes/events-infrastructure-artifact/0.0.1a16?dir=events-infrastructure";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-artifact-changes-events.follows =
         "pythoneda-shared-artifact-changes-events";
-      inputs.pythoneda-shared-artifact-changes-shared.follows =
-        "pythoneda-shared-artifact-changes-shared";
-      inputs.pythoneda-shared-code-requests-events.follows =
-        "pythoneda-shared-code-requests-events";
-      inputs.pythoneda-shared-code-requests-shared.follows =
-        "pythoneda-shared-code-requests-shared";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
       inputs.pythoneda-shared-pythoneda-infrastructure.follows =
         "pythoneda-shared-pythoneda-infrastructure";
-    };
-    pythoneda-shared-artifact-changes-shared = {
       url =
-        "github:pythoneda-shared-artifact-changes/shared-artifact/0.0.1a15?dir=shared";
-      inputs.nixos.follows = "nixos";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.pythoneda-shared-pythoneda-banner.follows =
-        "pythoneda-shared-pythoneda-banner";
-      inputs.pythoneda-shared-pythoneda-domain.follows =
-        "pythoneda-shared-pythoneda-domain";
-    };
-    pythoneda-shared-code-requests-events = {
-      url =
-        "github:pythoneda-shared-code-requests/events-artifact/0.0.1a11?dir=events";
-      inputs.nixos.follows = "nixos";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.pythoneda-shared-artifact-changes-shared.follows =
-        "pythoneda-shared-artifact-changes-shared";
-      inputs.pythoneda-shared-code-requests-shared.follows =
-        "pythoneda-shared-code-requests-shared";
-      inputs.pythoneda-shared-pythoneda-banner.follows =
-        "pythoneda-shared-pythoneda-banner";
-      inputs.pythoneda-shared-pythoneda-domain.follows =
-        "pythoneda-shared-pythoneda-domain";
-    };
-    pythoneda-shared-code-requests-events-infrastructure = {
-      url =
-        "github:pythoneda-shared-code-requests/events-infrastructure-artifact/0.0.1a7?dir=events-infrastructure";
-      inputs.nixos.follows = "nixos";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.pythoneda-shared-artifact-changes-shared.follows =
-        "pythoneda-shared-artifact-changes-shared";
-      inputs.pythoneda-shared-code-requests-events.follows =
-        "pythoneda-shared-code-requests-events";
-      inputs.pythoneda-shared-code-requests-shared.follows =
-        "pythoneda-shared-code-requests-shared";
-      inputs.pythoneda-shared-pythoneda-banner.follows =
-        "pythoneda-shared-pythoneda-banner";
-      inputs.pythoneda-shared-pythoneda-domain.follows =
-        "pythoneda-shared-pythoneda-domain";
-      inputs.pythoneda-shared-pythoneda-infrastructure.follows =
-        "pythoneda-shared-pythoneda-infrastructure";
-    };
-    pythoneda-shared-code-requests-jupyterlab = {
-      url =
-        "github:pythoneda-shared-code-requests/jupyterlab-artifact/0.0.1a13?dir=jupyterlab";
-      inputs.nixos.follows = "nixos";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.pythoneda-shared-code-requests-shared.follows =
-        "pythoneda-shared-code-requests-shared";
-      inputs.pythoneda-shared-git-shared.follows =
-        "pythoneda-shared-git-shared";
-      inputs.pythoneda-shared-nix-flake-shared.follows =
-        "pythoneda-shared-nix-flake-shared";
-      inputs.pythoneda-shared-pythoneda-banner.follows =
-        "pythoneda-shared-pythoneda-banner";
-      inputs.pythoneda-shared-pythoneda-domain.follows =
-        "pythoneda-shared-pythoneda-domain";
-    };
-    pythoneda-shared-code-requests-shared = {
-      url =
-        "github:pythoneda-shared-code-requests/shared-artifact/0.0.1a11?dir=shared";
-      inputs.nixos.follows = "nixos";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.pythoneda-shared-pythoneda-banner.follows =
-        "pythoneda-shared-pythoneda-banner";
-      inputs.pythoneda-shared-pythoneda-domain.follows =
-        "pythoneda-shared-pythoneda-domain";
-    };
-    pythoneda-shared-git-shared = {
-      url = "github:pythoneda-shared-git/shared-artifact/0.0.1a21?dir=shared";
-      inputs.nixos.follows = "nixos";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.pythoneda-shared-pythoneda-banner.follows =
-        "pythoneda-shared-pythoneda-banner";
-      inputs.pythoneda-shared-pythoneda-domain.follows =
-        "pythoneda-shared-pythoneda-domain";
-    };
-    pythoneda-shared-nix-flake-shared = {
-      url =
-        "github:pythoneda-shared-nix-flake/shared-artifact/0.0.1a8?dir=shared";
-      inputs.nixos.follows = "nixos";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.pythoneda-shared-git-shared.follows =
-        "pythoneda-shared-git-shared";
-      inputs.pythoneda-shared-pythoneda-banner.follows =
-        "pythoneda-shared-pythoneda-banner";
-      inputs.pythoneda-shared-pythoneda-domain.follows =
-        "pythoneda-shared-pythoneda-domain";
-      inputs.stringtemplate3.follows = "stringtemplate3";
+        "github:pythoneda-shared-artifact-changes/events-infrastructure-artifact/0.0.2?dir=events-infrastructure";
     };
     pythoneda-shared-pythoneda-banner = {
-      url = "github:pythoneda-shared-pythoneda/banner/0.0.1a17";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
+      url = "github:pythoneda-shared-pythoneda/banner/0.0.2";
     };
     pythoneda-shared-pythoneda-domain = {
-      url =
-        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.1a43?dir=domain";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
+      url =
+        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.2?dir=domain";
     };
     pythoneda-shared-pythoneda-infrastructure = {
-      url =
-        "github:pythoneda-shared-pythoneda/infrastructure-artifact/0.0.1a29?dir=infrastructure";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
-    };
-    stringtemplate3 = {
-      url = "github:rydnr/nix-flakes/stringtemplate3-3.1?dir=stringtemplate3";
-      inputs.nixos.follows = "nixos";
-      inputs.flake-utils.follows = "flake-utils";
+      url =
+        "github:pythoneda-shared-pythoneda/infrastructure-artifact/0.0.2?dir=infrastructure";
     };
   };
   outputs = inputs:
@@ -229,7 +111,7 @@
       let
         org = "pythoneda-realm-rydnr";
         repo = "infrastructure";
-        version = "0.0.1a9";
+        version = "0.0.2";
         sha256 = "sha256-+JD6b0RwLokwl1+11bvi1npQWggMvYryK79SqMGIIog=";
         pname = "${org}-${repo}";
         pythonpackage = builtins.replaceStrings [ "-" ] [ "." ] pname;
@@ -249,16 +131,10 @@
         pythoneda-realm-rydnr-infrastructure-for = { python
           , pythoneda-realm-rydnr-events
           , pythoneda-realm-rydnr-events-infrastructure
-          , pythoneda-realm-rydnr-realm
           , pythoneda-shared-artifact-changes-events
           , pythoneda-shared-artifact-changes-events-infrastructure
-          , pythoneda-shared-artifact-changes-shared
-          , pythoneda-shared-code-requests-events
-          , pythoneda-shared-code-requests-events-infrastructure
-          , pythoneda-shared-code-requests-jupyterlab
-          , pythoneda-shared-code-requests-shared, pythoneda-shared-git-shared
-          , pythoneda-shared-nix-flake-shared, pythoneda-shared-pythoneda-domain
-          , pythoneda-shared-pythoneda-infrastructure, stringtemplate3 }:
+          , pythoneda-shared-pythoneda-domain
+          , pythoneda-shared-pythoneda-infrastructure }:
           let
             pnameWithUnderscores =
               builtins.replaceStrings [ "-" ] [ "_" ] pname;
@@ -278,39 +154,19 @@
               desc = description;
               inherit homepage package pname pythonpackage version;
               dbusNext = python.pkgs.dbus-next.version;
-              grpcio = python.pkgs.grpcio.version;
-              jupyterlab = python.pkgs.jupyterlab.version;
-              nbformat = python.pkgs.nbformat.version;
               pythonMajorMinor = pythonMajorMinorVersion;
               pythonedaRealmRydnrEvents = pythoneda-realm-rydnr-events.version;
               pythonedaRealmRydnrEventsInfrastructure =
                 pythoneda-realm-rydnr-events-infrastructure.version;
-              pythonedaRealmRydnrRealm = pythoneda-realm-rydnr-realm.version;
               pythonedaSharedArtifactChangesEvents =
                 pythoneda-shared-artifact-changes-events.version;
               pythonedaSharedArtifactChangesEventsInfrastructure =
                 pythoneda-shared-artifact-changes-events-infrastructure.version;
-              pythonedaSharedArtifactChangesShared =
-                pythoneda-shared-artifact-changes-shared.version;
-              pythonedaSharedCodeRequestsEvents =
-                pythoneda-shared-code-requests-events.version;
-              pythonedaSharedCodeRequestsEventsInfrastructure =
-                pythoneda-shared-code-requests-events-infrastructure.version;
-              pythonedaSharedCodeRequestsJupyterlab =
-                pythoneda-shared-code-requests-jupyterlab.version;
-              pythonedaSharedCodeRequestsShared =
-                pythoneda-shared-code-requests-shared.version;
-              pythonedaSharedGitShared = pythoneda-shared-git-shared.version;
-              pythonedaSharedNixFlakeShared =
-                pythoneda-shared-nix-flake-shared.version;
               pythonedaSharedPythonedaDomain =
                 pythoneda-shared-pythoneda-domain.version;
               pythonedaSharedPythonedaInfrastructure =
                 pythoneda-shared-pythoneda-infrastructure.version;
-              requests = python.pkgs.requests.version;
               src = pyprojectTemplateFile;
-              stringtemplate3 = stringtemplate3.version;
-              unidiff = python.pkgs.unidiff.version;
             };
             src = pkgs.fetchFromGitHub {
               owner = org;
@@ -323,25 +179,12 @@
             nativeBuildInputs = with python.pkgs; [ pip pkgs.jq poetry-core ];
             propagatedBuildInputs = with python.pkgs; [
               dbus-next
-              grpcio
-              nbformat
               pythoneda-realm-rydnr-events
               pythoneda-realm-rydnr-events-infrastructure
-              pythoneda-realm-rydnr-realm
               pythoneda-shared-artifact-changes-events
               pythoneda-shared-artifact-changes-events-infrastructure
-              pythoneda-shared-artifact-changes-shared
-              pythoneda-shared-code-requests-events
-              pythoneda-shared-code-requests-events-infrastructure
-              pythoneda-shared-code-requests-jupyterlab
-              pythoneda-shared-code-requests-shared
-              pythoneda-shared-git-shared
-              pythoneda-shared-nix-flake-shared
               pythoneda-shared-pythoneda-domain
               pythoneda-shared-pythoneda-infrastructure
-              requests
-              stringtemplate3
-              unidiff
             ];
 
             pythonImportsCheck = [ pythonpackage ];
@@ -464,32 +307,14 @@
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python38;
               pythoneda-realm-rydnr-events-infrastructure =
                 pythoneda-realm-rydnr-events-infrastructure.packages.${system}.pythoneda-realm-rydnr-events-infrastructure-python38;
-              pythoneda-realm-rydnr-realm =
-                pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python38;
               pythoneda-shared-artifact-changes-events =
                 pythoneda-shared-artifact-changes-events.packages.${system}.pythoneda-shared-artifact-changes-events-python38;
               pythoneda-shared-artifact-changes-events-infrastructure =
                 pythoneda-shared-artifact-changes-events-infrastructure.packages.${system}.pythoneda-shared-artifact-changes-events-infrastructure-python38;
-              pythoneda-shared-artifact-changes-shared =
-                pythoneda-shared-artifact-changes-shared.packages.${system}.pythoneda-shared-artifact-changes-shared-python38;
-              pythoneda-shared-code-requests-events =
-                pythoneda-shared-code-requests-events.packages.${system}.pythoneda-shared-code-requests-events-python38;
-              pythoneda-shared-code-requests-events-infrastructure =
-                pythoneda-shared-code-requests-events-infrastructure.packages.${system}.pythoneda-shared-code-requests-events-infrastructure-python38;
-              pythoneda-shared-code-requests-jupyterlab =
-                pythoneda-shared-code-requests-jupyterlab.packages.${system}.pythoneda-shared-code-requests-jupyterlab-python38;
-              pythoneda-shared-code-requests-shared =
-                pythoneda-shared-code-requests-shared.packages.${system}.pythoneda-shared-code-requests-shared-python38;
-              pythoneda-shared-git-shared =
-                pythoneda-shared-git-shared.packages.${system}.pythoneda-shared-git-shared-python38;
-              pythoneda-shared-nix-flake-shared =
-                pythoneda-shared-nix-flake-shared.packages.${system}.pythoneda-shared-nix-flake-shared-python38;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python38;
               pythoneda-shared-pythoneda-infrastructure =
                 pythoneda-shared-pythoneda-infrastructure.packages.${system}.pythoneda-shared-pythoneda-infrastructure-python38;
-              stringtemplate3 =
-                stringtemplate3.packages.${system}.stringtemplate3-python38;
             };
           pythoneda-realm-rydnr-infrastructure-python39 =
             pythoneda-realm-rydnr-infrastructure-for {
@@ -498,32 +323,14 @@
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python39;
               pythoneda-realm-rydnr-events-infrastructure =
                 pythoneda-realm-rydnr-events-infrastructure.packages.${system}.pythoneda-realm-rydnr-events-infrastructure-python39;
-              pythoneda-realm-rydnr-realm =
-                pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python39;
               pythoneda-shared-artifact-changes-events =
                 pythoneda-shared-artifact-changes-events.packages.${system}.pythoneda-shared-artifact-changes-events-python39;
               pythoneda-shared-artifact-changes-events-infrastructure =
                 pythoneda-shared-artifact-changes-events-infrastructure.packages.${system}.pythoneda-shared-artifact-changes-events-infrastructure-python39;
-              pythoneda-shared-artifact-changes-shared =
-                pythoneda-shared-artifact-changes-shared.packages.${system}.pythoneda-shared-artifact-changes-shared-python39;
-              pythoneda-shared-code-requests-events =
-                pythoneda-shared-code-requests-events.packages.${system}.pythoneda-shared-code-requests-events-python39;
-              pythoneda-shared-code-requests-events-infrastructure =
-                pythoneda-shared-code-requests-events-infrastructure.packages.${system}.pythoneda-shared-code-requests-events-infrastructure-python39;
-              pythoneda-shared-code-requests-jupyterlab =
-                pythoneda-shared-code-requests-jupyterlab.packages.${system}.pythoneda-shared-code-requests-jupyterlab-python39;
-              pythoneda-shared-code-requests-shared =
-                pythoneda-shared-code-requests-shared.packages.${system}.pythoneda-shared-code-requests-shared-python39;
-              pythoneda-shared-git-shared =
-                pythoneda-shared-git-shared.packages.${system}.pythoneda-shared-git-shared-python39;
-              pythoneda-shared-nix-flake-shared =
-                pythoneda-shared-nix-flake-shared.packages.${system}.pythoneda-shared-nix-flake-shared-python39;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python39;
               pythoneda-shared-pythoneda-infrastructure =
                 pythoneda-shared-pythoneda-infrastructure.packages.${system}.pythoneda-shared-pythoneda-infrastructure-python39;
-              stringtemplate3 =
-                stringtemplate3.packages.${system}.stringtemplate3-python39;
             };
           pythoneda-realm-rydnr-infrastructure-python310 =
             pythoneda-realm-rydnr-infrastructure-for {
@@ -532,32 +339,14 @@
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python310;
               pythoneda-realm-rydnr-events-infrastructure =
                 pythoneda-realm-rydnr-events-infrastructure.packages.${system}.pythoneda-realm-rydnr-events-infrastructure-python310;
-              pythoneda-realm-rydnr-realm =
-                pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python310;
               pythoneda-shared-artifact-changes-events =
                 pythoneda-shared-artifact-changes-events.packages.${system}.pythoneda-shared-artifact-changes-events-python310;
               pythoneda-shared-artifact-changes-events-infrastructure =
                 pythoneda-shared-artifact-changes-events-infrastructure.packages.${system}.pythoneda-shared-artifact-changes-events-infrastructure-python310;
-              pythoneda-shared-artifact-changes-shared =
-                pythoneda-shared-artifact-changes-shared.packages.${system}.pythoneda-shared-artifact-changes-shared-python310;
-              pythoneda-shared-code-requests-events =
-                pythoneda-shared-code-requests-events.packages.${system}.pythoneda-shared-code-requests-events-python310;
-              pythoneda-shared-code-requests-events-infrastructure =
-                pythoneda-shared-code-requests-events-infrastructure.packages.${system}.pythoneda-shared-code-requests-events-infrastructure-python310;
-              pythoneda-shared-code-requests-jupyterlab =
-                pythoneda-shared-code-requests-jupyterlab.packages.${system}.pythoneda-shared-code-requests-jupyterlab-python310;
-              pythoneda-shared-code-requests-shared =
-                pythoneda-shared-code-requests-shared.packages.${system}.pythoneda-shared-code-requests-shared-python310;
-              pythoneda-shared-git-shared =
-                pythoneda-shared-git-shared.packages.${system}.pythoneda-shared-git-shared-python310;
-              pythoneda-shared-nix-flake-shared =
-                pythoneda-shared-nix-flake-shared.packages.${system}.pythoneda-shared-nix-flake-shared-python310;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python310;
               pythoneda-shared-pythoneda-infrastructure =
                 pythoneda-shared-pythoneda-infrastructure.packages.${system}.pythoneda-shared-pythoneda-infrastructure-python310;
-              stringtemplate3 =
-                stringtemplate3.packages.${system}.stringtemplate3-python310;
             };
           pythoneda-realm-rydnr-infrastructure-python311 =
             pythoneda-realm-rydnr-infrastructure-for {
@@ -566,32 +355,14 @@
                 pythoneda-realm-rydnr-events.packages.${system}.pythoneda-realm-rydnr-events-python311;
               pythoneda-realm-rydnr-events-infrastructure =
                 pythoneda-realm-rydnr-events-infrastructure.packages.${system}.pythoneda-realm-rydnr-events-infrastructure-python311;
-              pythoneda-realm-rydnr-realm =
-                pythoneda-realm-rydnr-realm.packages.${system}.pythoneda-realm-rydnr-realm-python311;
               pythoneda-shared-artifact-changes-events =
                 pythoneda-shared-artifact-changes-events.packages.${system}.pythoneda-shared-artifact-changes-events-python311;
               pythoneda-shared-artifact-changes-events-infrastructure =
                 pythoneda-shared-artifact-changes-events-infrastructure.packages.${system}.pythoneda-shared-artifact-changes-events-infrastructure-python311;
-              pythoneda-shared-artifact-changes-shared =
-                pythoneda-shared-artifact-changes-shared.packages.${system}.pythoneda-shared-artifact-changes-shared-python311;
-              pythoneda-shared-code-requests-events =
-                pythoneda-shared-code-requests-events.packages.${system}.pythoneda-shared-code-requests-events-python311;
-              pythoneda-shared-code-requests-events-infrastructure =
-                pythoneda-shared-code-requests-events-infrastructure.packages.${system}.pythoneda-shared-code-requests-events-infrastructure-python311;
-              pythoneda-shared-code-requests-jupyterlab =
-                pythoneda-shared-code-requests-jupyterlab.packages.${system}.pythoneda-shared-code-requests-jupyterlab-python311;
-              pythoneda-shared-code-requests-shared =
-                pythoneda-shared-code-requests-shared.packages.${system}.pythoneda-shared-code-requests-shared-python311;
-              pythoneda-shared-git-shared =
-                pythoneda-shared-git-shared.packages.${system}.pythoneda-shared-git-shared-python311;
-              pythoneda-shared-nix-flake-shared =
-                pythoneda-shared-nix-flake-shared.packages.${system}.pythoneda-shared-nix-flake-shared-python311;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python311;
               pythoneda-shared-pythoneda-infrastructure =
                 pythoneda-shared-pythoneda-infrastructure.packages.${system}.pythoneda-shared-pythoneda-infrastructure-python311;
-              stringtemplate3 =
-                stringtemplate3.packages.${system}.stringtemplate3-python311;
             };
         };
       });
