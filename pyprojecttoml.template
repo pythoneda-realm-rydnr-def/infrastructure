@@ -1,8 +1,8 @@
-# infrastructure/pyprojecttoml.template
+# pyprojecttoml.template
 #
 # This file is the template for pythoneda-realm-rydnr/infrastructure's pyproject.toml
 #
-# Copyright (C) 2023-today rydnr's pythoneda-realm-rydnr/infrastructure-artifact
+# Copyright (C) 2023-today rydnr's pythoneda-realm-rydnr-def/infrastructure
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,8 +30,8 @@ dbus-next = "^@dbusNext@"
 python = "^@pythonMajorMinor@"
 pythoneda-realm-rydnr-events = "^@pythonedaRealmRydnrEvents@"
 pythoneda-realm-rydnr-events-infrastructure = "^@pythonedaRealmRydnrEventsInfrastructure@"
-pythoneda-shared-artifact-changes-events = "^@pythonedaSharedArtifactChangesEvents@"
-pythoneda-shared-artifact-changes-events-infrastructure = "^@pythonedaSharedArtifactChangesEventsInfrastructure@"
+pythoneda-shared-artifact-events = "^@pythonedaSharedArtifactEvents@"
+pythoneda-shared-artifact-events-infrastructure = "^@pythonedaSharedArtifactEventsInfrastructure@"
 pythoneda-shared-pythoneda-domain = "^@pythonedaSharedPythonedaDomain@"
 pythoneda-shared-pythoneda-infrastructure = "^@pythonedaSharedPythonedaInfrastructure@"
 
