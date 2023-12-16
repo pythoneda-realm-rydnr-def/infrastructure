@@ -28,7 +28,7 @@
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
-      url = "github:pythoneda-realm-rydnr-def/events/0.0.6";
+      url = "github:pythoneda-realm-rydnr-def/events/0.0.7";
     };
     pythoneda-realm-rydnr-events-infrastructure = {
       inputs.flake-utils.follows = "flake-utils";
@@ -41,7 +41,7 @@
         "pythoneda-shared-pythoneda-domain";
       inputs.pythoneda-shared-pythoneda-infrastructure.follows =
         "pythoneda-shared-pythoneda-infrastructure";
-      url = "github:pythoneda-realm-rydnr-def/events-infrastructure/0.0.6";
+      url = "github:pythoneda-realm-rydnr-def/events-infrastructure/0.0.7";
     };
     pythoneda-realm-rydnr-realm = {
       inputs.flake-utils.follows = "flake-utils";
@@ -54,7 +54,7 @@
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
-      url = "github:pythoneda-realm-rydnr-def/realm/0.0.9";
+      url = "github:pythoneda-realm-rydnr-def/realm/0.0.10";
     };
     pythoneda-shared-artifact-events = {
       inputs.flake-utils.follows = "flake-utils";
@@ -76,7 +76,7 @@
         "pythoneda-shared-pythoneda-domain";
       inputs.pythoneda-shared-pythoneda-infrastructure.follows =
         "pythoneda-shared-pythoneda-infrastructure";
-      url = "github:pythoneda-shared-artifact-def/events-infrastructure/0.0.10";
+      url = "github:pythoneda-shared-artifact-def/events-infrastructure/0.0.11";
     };
     pythoneda-shared-pythoneda-banner = {
       inputs.flake-utils.follows = "flake-utils";
@@ -106,8 +106,8 @@
       let
         org = "pythoneda-realm-rydnr";
         repo = "infrastructure";
-        version = "0.0.2";
-        sha256 = "sha256-+JD6b0RwLokwl1+11bvi1npQWggMvYryK79SqMGIIog=";
+        version = "0.0.3";
+        sha256 = "1q7d0x8025b3jf4wiwgyfjq1hf7hfmvizcichr30mzk30lhvaakz";
         pname = "${org}-${repo}";
         pythonpackage = builtins.replaceStrings [ "-" ] [ "." ] pname;
         package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
