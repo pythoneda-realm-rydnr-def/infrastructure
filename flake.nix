@@ -54,7 +54,7 @@
         "pythoneda-shared-banner";
       inputs.pythoneda-shared-domain.follows =
         "pythoneda-shared-domain";
-      url = "github:pythoneda-realm-rydnr-def/realm/0.0.29";
+      url = "github:pythoneda-realm-rydnr-def/realm/0.0.30";
     };
     pythoneda-shared-artifact-events = {
       inputs.flake-utils.follows = "flake-utils";
