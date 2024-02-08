@@ -32,8 +32,8 @@ pythoneda-realm-rydnr-events = "^@pythonedaRealmRydnrEvents@"
 pythoneda-realm-rydnr-events-infrastructure = "^@pythonedaRealmRydnrEventsInfrastructure@"
 pythoneda-shared-artifact-events = "^@pythonedaSharedArtifactEvents@"
 pythoneda-shared-artifact-events-infrastructure = "^@pythonedaSharedArtifactEventsInfrastructure@"
-pythoneda-shared-domain = "^@pythonedaSharedDomain@"
-pythoneda-shared-infrastructure = "^@pythonedaSharedInfrastructure@"
+pythoneda-shared-pythonlang-domain = "^@pythonedaSharedPythonlangDomain@"
+pythoneda-shared-pythonlang-infrastructure = "^@pythonedaSharedPythonlangInfrastructure@"
 
 [build-system]
 requires = ["poetry-core"]
